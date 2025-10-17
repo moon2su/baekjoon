@@ -1,29 +1,27 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
 #include <string.h>
 
-int main() {
+using namespace std;
 
-	char S[1000000];
-	int i = 0, cnt = 0, len;
-
-	scanf("%[^\n]", S); // 엔터가 나올때까지 문자열로 받는다는 말
-	len = strlen(S);
-
-	if (len == 1) {
-		if (S[i] == ' ') {
-			printf("0 \n");
-			return 0;
-		}
-	}
-
-	for (i = 1; i < len - 1; i++) {
-		if (S[i] == ' ') {
-			cnt++;
-		}
-	}
-
-	printf("%d", cnt + 1);
-
-	return 0;
-
+int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
+    
+    string s;
+    int cnt = 1;
+    
+    getline(cin, s);
+    
+    if(s.length() == 1 && s[0] == ' ') {
+        cout << 0;
+        return 0;
+    }
+    
+    for(int i = 1; i < s.length() - 1; i++){
+        if(s[i] == ' ') { cnt++; }
+        
+    }
+    
+    cout << cnt;
+    return 0;
+    
 }
