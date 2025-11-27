@@ -1,26 +1,20 @@
 #include <bits/stdc++.h>
-#include <string>
+using namespace std;
 
-int main() {
+
+
+int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
     
-  int a;
-  int b;
-  int c;
-
-  std::cin >> a;
-  std::cin >> b;
-  std::cin >> c;
-  int result1 = a + b - c;
-
-  std::cout << result1 << "\n";
-
-  std::string strA = std::to_string(a);
-  std::string strB = std::to_string(b);
-  std::string strC = std::to_string(c);
-
-  int result2 = stoi(strA + strB) - stoi(strC);
+    int A, B, C; cin >> A >> B >> C;
     
-  std::cout << result2 << "\n";
-
-  return 0;
+    cout << A + B - C << '\n';
+    
+    string strA = to_string(A);
+    string strB = to_string(B);
+    string strC = to_string(C);
+    
+    cout << stoi(strA + strB) - stoi(strC);
+    
+    return 0;
 }
