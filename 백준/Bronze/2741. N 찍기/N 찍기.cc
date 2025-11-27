@@ -1,12 +1,15 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
+
+
 
 int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
     
-    int N;
-    scanf("%d \n", &N);
+    int N; cin >> N;
     
     for(int i = 1; i <= N; i++){
-        printf("%d \n", i);
+        cout << i << '\n';
     }
     
     return 0;
