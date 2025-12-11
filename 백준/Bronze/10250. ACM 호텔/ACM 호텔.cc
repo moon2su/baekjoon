@@ -1,24 +1,29 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
     
-    int T;
-    int H;
-    int W;
-    int N;
-    int result;
-    
-    std::cin >> T;
+    int T; cin >> T;
+    int H, W, N;
+    int num;
     
     for(int i = 0; i < T; i++){
+        cin >> H >> W >> N;
         
-        std::cin >> H >> W >> N;
+        for(int i = 1; i <= W; i++){
+            
+            if(H >= N){
+                num = 100 * N + i;
+                break;
+            }
+            
+            if(N > H){ N = N - H; }
+            
+        }
         
-        if(N % H == 0) result = H * 100 + (N / H);
-        
-        else result = (N % H) * 100 + (N / H) + 1;
-        
-        std::cout << result << std::endl;
-        
+        cout << num << '\n';
     }
+    
+    return 0;
 }
