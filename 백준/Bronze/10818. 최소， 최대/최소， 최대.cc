@@ -1,22 +1,29 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
 
-int main() {
+int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
+    
+    int N; cin >> N;
+    vector<int> v(N);
+    int min, max;
+    
+    for(int i = 0; i < N; i++){
+        cin >> v[i];
+    }
+    
+    min = v[0];
+    max = v[0];
+    
+    for(int i = 0; i < v.size(); i++){
+        
+        if(min > v[i]){ min = v[i]; }
+        
+        
+        if(v[i] > max){ max = v[i]; }
+    }
+    
+    cout << min << ' ' << max;
 
-	int N;
-	scanf("%d", &N);
-	int a[1000000];
-	int min = 1000000, max = -1000000;
-
-	for (int i = 0; i < N; i++) {
-		scanf("%d", &a[i]);
-		if (a[i] > max)
-			max = a[i];
-		if (a[i] < min)
-			min = a[i];
-	}
-
-	printf("%d %d", min, max);
-
-	return 0;
-
+    return 0;
 }
