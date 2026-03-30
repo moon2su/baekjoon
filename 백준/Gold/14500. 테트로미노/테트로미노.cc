@@ -24,10 +24,8 @@ void dfs(int y, int x, int d, int sum){
         int nx = x + dx[dir];
         int ny = y + dy[dir];
         if(nx < 0 || nx >= M || ny < 0 || ny >= N) continue;
-        else{
-            if(!vis[ny][nx]){
-                dfs(ny, nx, d+1, sum);
-            }
+        if(!vis[ny][nx]){
+            dfs(ny, nx, d+1, sum);
         }
     }
     vis[y][x] = 0;
@@ -38,15 +36,20 @@ void T(int y, int x){
     int sum, dir, ny, nx;
     for(int i = 0; i < 4; i++){
         sum = board[y][x];
+        int cnt = 1;
+        
         for(dir = 0; dir < 4; dir++){
             if(dir == i) continue;
+            
             ny = y + dy[dir];
             nx = x + dx[dir];
-            if(ny >= 0 && ny < N && nx >= 0 && nx < M)
-                sum += board[ny][nx];
+            if(nx < 0 || nx >= M || ny < 0 || ny >= N) continue;
+            
+            sum += board[ny][nx];
+            cnt++;
         }
-        if(sum > ans)
-            ans = sum;
+        if(cnt == 4)
+            ans = max(ans, sum);
     }
 }
 
