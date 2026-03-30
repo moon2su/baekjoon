@@ -8,7 +8,7 @@ int main(){
     while(1){
         cin >> n >> m;
         if(n == 0 && m == 0) break;
-        map<int, int> playerScoreMap;
+        map<int, int> playerScoreMap; // 스코어, 횟수
         int num1 = 0, num2 = 0;
         for(int i = 0; i < n * m; i++){
             int x;
@@ -16,7 +16,7 @@ int main(){
             playerScoreMap[x]++;
         }
         
-        for(auto RankMap : playerScoreMap){
+        for(auto RankMap : playerScoreMap){ //범위기반 반복
             num1 = max(num1, RankMap.second);
         }
         
