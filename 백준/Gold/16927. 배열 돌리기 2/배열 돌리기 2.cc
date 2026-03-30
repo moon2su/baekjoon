@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int N, M, R;
 int board[301][301];
 int dx[4] = {0, 1, 0, -1};
