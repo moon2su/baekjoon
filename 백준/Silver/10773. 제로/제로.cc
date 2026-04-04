@@ -1,30 +1,28 @@
-#include <stdio.h>
-int stack[100001];
-int top = -1;
+#include <bits/stdc++.h>
+using namespace std;
 
-void push(int data){
-    top++;
-    stack[top] = data;
-}
-void pop(){
-    stack[top] = 0;
-    top--;
-}
 
 int main(){
-    int K, data, sum = 0;
-    scanf("%d", &K);
+    ios::sync_with_stdio(0); cin.tie(0);
+    
+    stack<int> S;
+    int K; cin >> K;
+    int num;
+    int cnt = 0;
+    
     for(int i = 0; i < K; i++){
-        scanf("%d\n", &data);
-        if(data == 0){
-            pop();
+        cin >> num;
+        if(num != 0){
+            S.push(num);
+            cnt += num;
         }
-        else
-            push(data);
+        else{
+            cnt -= S.top();
+            S.pop();
+        }
     }
-    for(int i = 0; i <= top; i++){
-        sum = sum + stack[i];
-    }
-    printf("%d", sum);
+    
+    cout << cnt;
+    
     return 0;
 }
