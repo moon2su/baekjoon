@@ -13,7 +13,7 @@ int main(){
         }
         
         stack<char> S;
-        bool flag = 0;
+        int cnt = 0;
         
         for(int i = 0; i < str.length(); i++){
             char c = str[i];
@@ -26,7 +26,7 @@ int main(){
                     S.pop();
                 }
                 else{
-                    flag = 1;
+                    cnt++;
                     break;
                 }
             }
@@ -35,12 +35,12 @@ int main(){
                     S.pop();
                 }
                 else{
-                    flag = 1;
+                    cnt++;
                     break;
                 }
             }
         }
-        if(flag == 0 && S.empty()){
+        if(cnt == 0 && S.empty()){
             cout << "yes" << '\n';
         }
         else{
