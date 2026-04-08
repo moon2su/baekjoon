@@ -1,88 +1,74 @@
-#include <stdio.h>
-#include <string.h>
+#include <bits/stdc++.h>
+using namespace std;
 
-#define MAX_SIZE 2000001
+int Q[2000000];
+int head, tail;
 
-int Queue[MAX_SIZE];
-int frontt = 0;
-int backk = 0;
+void push(int X){
+    Q[tail++] = X;
+}
 
-void push(int data);
-void pop();
-void size();
-void empty();
-void front();
-void back();
+void pop(){
+    if(head == tail) cout << -1 << '\n';
+    else{
+        cout << Q[head] << '\n';
+        head++;
+    }
+}
 
-int main() {
-    int N, i, X;
-    char com[6];
-    scanf("%d", &N);
+void size(){
+    cout << tail - head << '\n';
+}
 
-    for (i = 0; i < N; i++) {
-        scanf("%s", com);
-        if (strcmp(com, "push") == 0) {
-            scanf("%d", &X);
+void empty(){
+    if(head == tail) cout << 1 << '\n';
+    else cout << 0 << '\n';
+}
+
+void front(){
+    if(head == tail) cout << -1 << '\n';
+    else{
+        cout << Q[head] << '\n';
+    }
+}
+
+void back(){
+    if(head == tail) cout << -1 << '\n';
+    else{
+        cout << Q[tail - 1] << '\n';
+    }
+}
+
+int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
+    
+    long long N; cin >> N;
+    queue<long long> Q;
+    
+    for(long long i = 0; i < N; i++){
+        string str;
+        cin >> str;
+        
+        if(str == "push"){
+            int X; cin >> X;
             push(X);
         }
-        else if (strcmp(com, "pop") == 0) {
+        else if(str == "pop"){
             pop();
         }
-        else if (strcmp(com, "size") == 0) {
+        else if(str == "size"){
             size();
         }
-        else if (strcmp(com, "empty") == 0) {
+        else if(str == "empty"){
             empty();
         }
-        else if (strcmp(com, "front") == 0) {
+        else if(str == "front"){
             front();
         }
-        else if (strcmp(com, "back") == 0) {
+        else if(str == "back"){
             back();
         }
     }
-
+    
     return 0;
-}
-
-void push(int data) {
-    Queue[backk++] = data;
-}
-
-void pop() {
-    if (frontt == backk) {
-        printf("-1\n");
-    }
-    else {
-        printf("%d\n", Queue[frontt++]);
-    }
-}
-
-void size() {
-    printf("%d\n", backk - frontt);
-}
-
-void empty() {
-    if (frontt == backk)
-        printf("1\n");
-    else
-        printf("0\n");
-}
-
-void front() {
-    if (frontt == backk) {
-        printf("-1\n");
-    }
-    else {
-        printf("%d\n", Queue[frontt]);
-    }
-}
-
-void back() {
-    if (frontt == backk) {
-        printf("-1\n");
-    }
-    else {
-        printf("%d\n", Queue[backk - 1]);
-    }
 }
